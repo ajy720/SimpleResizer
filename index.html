@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 리사이즈</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="upload-container">
+        <div id="drop-zone">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>파일을 드래그&드롭 하거나 <span class="choose-file">파일 선택</span></p>
+            <input type="file" id="file-input" style="display: none;" accept="image/*">
+            <img id="image-preview" alt="미리보기 이미지">
+        </div>
+        <div class="file-info" id="file-info"></div>
+        <div class="buttons">
+            <button id="download-main" disabled>본문 사이즈<br>다운로드</button>
+            <button id="download-thumbnail" disabled>썸네일 사이즈<br>다운로드</button>
+            <button id="download-compressed" disabled>저용량 이미지<br>다운로드</button>
+        </div>
+        <div class="note">이미지는 비율에 맞춰 리사이즈됩니다.</div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
