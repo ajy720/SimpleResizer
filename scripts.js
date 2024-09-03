@@ -30,10 +30,21 @@ window.onload = () => {
             handleFile(event.target.files[0]);
         }
     });
-}
+
+    // 클립보드에서 이미지 붙여넣기 지원
+    document.addEventListener('paste', (event) => {
+        const items = event.clipboardData.items;
+        for (let i = 0; i < items.length; i++) {
+            if (items[i].type.indexOf('image') !== -1) {
+                const file = items[i].getAsFile();
+                handleFile(file);
+            }
+        }
+    });
+};
 
 const getParsedFilename = (fileName = "") => {
-    return fileName.slice(0, fileName.lastIndexOf("."))
+    return fileName.slice(0, fileName.lastIndexOf("."));
 }
 
 function handleFile(file) {
