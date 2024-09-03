@@ -7,6 +7,7 @@
     <title>이미지 리사이즈</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
 </head>
 
 <body>
@@ -23,6 +24,14 @@
             <button id="download-main" disabled>본문 사이즈<br>다운로드</button>
             <button id="download-thumbnail" disabled>썸네일 사이즈<br>다운로드</button>
             <button id="download-compressed" disabled>저용량 이미지<br>다운로드</button>
+        </div>
+        <div class="buttons">
+            <div class="checkboxes">
+                <label><input type="checkbox" id="check-main" checked> 본문 사이즈 (800px)</label><br>
+                <label><input type="checkbox" id="check-thumbnail"> 썸네일 사이즈 (636px)</label><br>
+                <label><input type="checkbox" id="check-compressed"> 저용량 이미지</label>
+            </div>
+            <button id="download-zip" disabled>압축파일 다운로드</button>
         </div>
         <div class="note">이미지는 비율에 맞춰 리사이즈됩니다.</div>
     </div>
