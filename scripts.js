@@ -32,8 +32,12 @@ window.onload = () => {
     });
 }
 
+const getParsedFilename = (fileName = "") => {
+    return fileName.slice(0, fileName.lastIndexOf("."))
+}
+
 function handleFile(file) {
-    fileName = file.name;
+    fileName = getParsedFilename(file.name);
 
     const reader = new FileReader();
     reader.onload = (event) => {
@@ -42,7 +46,7 @@ function handleFile(file) {
             originalImage = img;
             imagePreview.src = event.target.result;
             imagePreview.style.display = 'block';
-            fileInfo.textContent = `파일명: ${file.name} (${(file.size / 1024).toFixed(1)} kb)`;
+            fileInfo.textContent = `파일명: ${file.name} (${(file.size / 1024).toFixed(1)}KB)`;
             enableDownloadButtons();
         };
         img.src = event.target.result;
@@ -69,7 +73,7 @@ function downloadResizedImage(width, name) {
     ctx.drawImage(originalImage, 0, 0, canvas.width, canvas.height);
     const link = document.createElement('a');
     link.download = `${fileName}-${width}px.jpg`;
-    link.href = canvas.toDataURL('image/jpg');
+    link.href = canvas.toDataURL('image/jpeg');
     link.click();
 }
 
